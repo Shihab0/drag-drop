@@ -15,25 +15,26 @@ input.addEventListener("change", function () {
 });
 
 DragArea.addEventListener("dragover", (e) => {
-  e.preventDefault;
+  e.preventDefault();
   DragArea.classList.add("active");
   DragText.innerText = "Release to upload file";
 });
 DragArea.addEventListener("dragleave", (e) => {
-  e.preventDefault;
+  e.preventDefault();
   DragArea.classList.remove("active");
   DragText.innerText = "Drag & Drop";
 });
 
 DragArea.addEventListener("drop", (e) => {
-  e.preventDefault;
+  e.preventDefault();
+  console.log("Drop event triggered.");
   MyFile = e.dataTransfer.files[0];
   showFile();
 });
 
 function showFile() {
   let fileType = MyFile.type;
-  let validation = ["image/jpg", "image/jpeg", "image/png", "file/svg"];
+  let validation = ["image/jpg", "image/jpeg", "image/png", "image/svg+xml"];
 
   if (validation.includes(fileType)) {
     let fileReader = new FileReader();
